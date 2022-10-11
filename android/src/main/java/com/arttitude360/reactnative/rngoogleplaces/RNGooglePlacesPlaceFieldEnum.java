@@ -1,7 +1,7 @@
 package com.arttitude360.reactnative.rngoogleplaces;
 
 import android.util.SparseArray;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.google.android.libraries.places.api.model.Place;
 
@@ -29,21 +29,21 @@ public enum RNGooglePlacesPlaceFieldEnum {
     private final Place.Field field;
 
     private static class Indexer {
-        private static SparseArray<RNGooglePlacesPlaceFieldEnum> index = new SparseArray<>();
+        private static SparseArray<com.arttitude360.reactnative.rngoogleplaces.RNGooglePlacesPlaceFieldEnum> index = new SparseArray<>();
     }
 
     RNGooglePlacesPlaceFieldEnum(int id, String key, Place.Field field) {
         this.key = key;
         this.field = field;
-        Indexer.index.put(id, this);
+        com.arttitude360.reactnative.rngoogleplaces.RNGooglePlacesPlaceFieldEnum.Indexer.index.put(id, this);
     }
 
     public Place.Field getField() {
         return field;
     }
-    
+
     @Nullable
-    public static RNGooglePlacesPlaceFieldEnum findByFieldKey(String key) {
+    public static com.arttitude360.reactnative.rngoogleplaces.RNGooglePlacesPlaceFieldEnum findByFieldKey(String key) {
         int fieldId;
 
         switch (key) {
@@ -65,7 +65,7 @@ public enum RNGooglePlacesPlaceFieldEnum {
             default: fieldId = 16; break;
         }
 
-        RNGooglePlacesPlaceFieldEnum fieldEnum = Indexer.index.get(fieldId);
+        com.arttitude360.reactnative.rngoogleplaces.RNGooglePlacesPlaceFieldEnum fieldEnum = com.arttitude360.reactnative.rngoogleplaces.RNGooglePlacesPlaceFieldEnum.Indexer.index.get(fieldId);
         if (fieldEnum != null) return fieldEnum;
         return null;
     }
